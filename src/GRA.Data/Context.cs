@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System.Linq;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace GRA.Data
 {
@@ -22,6 +24,11 @@ namespace GRA.Data
             devConnectionString = connectionString;
         }
 
+        public DbSet<Model.AuditLog> AuditLogs { get; set; }
+        public DbSet<Model.Branch> Branches { get; set; }
+        public DbSet<Model.Challenge> Challenges { get; set; }
+        public DbSet<Model.Program> Programs { get; set; }
         public DbSet<Model.Site> Sites { get; set; }
+        public DbSet<Model.System> Systems { get; set; }
     }
 }

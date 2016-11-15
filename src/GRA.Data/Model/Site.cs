@@ -15,11 +15,10 @@ namespace GRA.Data.Model
         public string Name { get; set; }
         [MaxLength(255)]
         public string Domain { get; set; }
-        [Required]
-        public DateTime CreatedAt { get; set; }
-        [Required]
-        public string CreatedBy { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public string UpdatedBy { get; set; }
+
+        public DateTime? RegistrationOpens { get; set; }
+        public DateTime? ProgramStarts { get; set; }
+        public DateTime? ProgramEnds { get; set; }
+        public DateTime? AccessClosed { get; set; }
     }
 }

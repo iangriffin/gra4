@@ -35,12 +35,10 @@ namespace GRA.Domain
             // todo verify paritipcant is admin?
 
             // create default site
-            repo.AddSite(new Model.Site
+            repo.AddSite(participant, new Model.Site
             {
                 Name = "Default Site",
-                Path = "default",
-                CreatedAt = DateTime.Now,
-                CreatedBy = participant.UserName
+                Path = "default"
             });
         }
     }

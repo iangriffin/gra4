@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace GRA.Data.Model
+{
+    public class Program
+    {
+        public int Id { get; set; }
+        [Required]
+        public int SiteId { get; set; }
+
+        [Required]
+        [MaxLength(255)]
+        public string Name { get; set; }
+        [Required]
+        public int Achiever { get; set; }
+        [Required]
+        public bool AskAge { get; set; }
+        [Required]
+        public bool AgeRequired { get; set; }
+        [Required]
+        public bool AskSchool { get; set; }
+        [Required]
+        public bool SchoolRequired { get; set; }
+    }
+}
