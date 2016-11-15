@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GRA.Data.Model
 {
-    public class AuditLog
+    public class AuditLog : Abstract.BaseDbEntity
     {
-        public int Id { get; set; }
+
         [Required]
         [MaxLength(255)]
         public string EntityType { get; set; }
@@ -17,8 +17,7 @@ namespace GRA.Data.Model
         [Required]
         public string CurrentValue { get; set; }
         [Required]
-        [MaxLength(450)]
-        public string UpdatedBy { get; set; }
+        public int UpdatedBy { get; set; }
         [Required]
         public DateTime UpdatedAt { get; set; }
     }

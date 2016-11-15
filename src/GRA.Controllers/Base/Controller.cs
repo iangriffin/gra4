@@ -10,7 +10,7 @@ namespace GRA.Controllers.Base
     {
         protected readonly IConfigurationRoot config;
         protected readonly Service service;
-        protected readonly UserManager<Domain.Model.Participant> userManager;
+        protected readonly UserManager<Domain.Model.User> userManager;
         public Controller(ServiceFacade.Controller context)
         {
             if (context == null)

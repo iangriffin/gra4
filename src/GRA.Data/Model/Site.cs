@@ -4,9 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GRA.Data.Model
 {
-    public class Site
+    public class Site : Abstract.BaseDbEntity
     {
-        public int Id { get; set; }
         [Required]
         [MaxLength(255)]
         public string Path { get; set; }

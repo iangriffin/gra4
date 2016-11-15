@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace GRA.Data
 {
-    public abstract class Context : IdentityDbContext<Domain.Model.Participant>
+    public abstract class Context : IdentityDbContext<Domain.Model.User>
     {
         protected readonly string devConnectionString;
         protected readonly IConfigurationRoot config;

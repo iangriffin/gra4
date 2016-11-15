@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace GRA.Domain.Model
 {
-    public class Participant : IdentityUser
+    public class User : IdentityUser
     {
 
     }

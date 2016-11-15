@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GRA.Domain.Model
 {
-    public class Site
+    public class Site : Abstract.IDomainEntity
     {
         [Required]
         [MaxLength(255)]

@@ -1,10 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
-namespace GRA.Domain
+namespace GRA.Domain.Abstract
 {
-    public interface IRepository
+    public interface IRepository<T>
     {
-        IEnumerable<Model.Site> GetSites();
-        bool AddSite(Model.Participant participant, Model.Site site);
+        IQueryable<T> GetAll();
+        IQueryable<T> PageAll(int skip, int take);
+        T GetById(int id);
+        void Add(T entity);
+        void Update(T entity);
+        void Remove(T entity);
+        void Remove(int id);
     }
 }

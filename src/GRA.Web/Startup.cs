@@ -39,9 +39,8 @@ namespace GRA.Web
             services.AddScoped<Controllers.ServiceFacade.Controller, Controllers.ServiceFacade.Controller>();
             services.AddScoped<Data.Context, Data.SqlServer.SqlServerContext>();
             //services.AddScoped<Data.Context, Data.SQLite.SQLiteContext>();
-            services.AddScoped<Domain.IRepository, Data.Repository>();
             services.AddScoped<Domain.Service, Domain.Service>();
-            services.AddIdentity<Domain.Model.Participant, IdentityRole>()
+            services.AddIdentity<Domain.Model.User, IdentityRole>()
                 .AddEntityFrameworkStores<Data.Context>();
             services.AddAutoMapper();
             services.AddAuthorization(_ =>

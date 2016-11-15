@@ -12,11 +12,11 @@ namespace GRA.Controllers.MissionControl
     {
         private readonly ILogger<LoginController> logger;
         private readonly RoleManager<IdentityRole> roleManager;
-        private readonly SignInManager<Domain.Model.Participant> signInManager;
+        private readonly SignInManager<Domain.Model.User> signInManager;
         public LoginController(ILogger<LoginController> logger,
             ServiceFacade.Controller context,
             RoleManager<IdentityRole> roleManager,
-            SignInManager<Domain.Model.Participant> signInManager)
+            SignInManager<Domain.Model.User> signInManager)
             : base(context)
         {
             this.logger = logger;

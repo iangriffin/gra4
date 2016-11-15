@@ -14,11 +14,11 @@ namespace GRA.Controllers.MissionControl
     {
         private readonly ILogger<RegisterController> logger;
         private readonly RoleManager<IdentityRole> roleManager;
-        private readonly SignInManager<Domain.Model.Participant> signInManager;
+        private readonly SignInManager<Domain.Model.User> signInManager;
         public RegisterController(ILogger<RegisterController> logger,
             ServiceFacade.Controller context,
             RoleManager<IdentityRole> roleManager,
-            SignInManager<Domain.Model.Participant> signInManager)
+            SignInManager<Domain.Model.User> signInManager)
             : base(context)
         {
             this.logger = logger;
@@ -37,7 +37,7 @@ namespace GRA.Controllers.MissionControl
         {
             bool initialSetup = service.GetSitePaths().Count() == 0;
 
-            var user = new Domain.Model.Participant
+            var user = new Domain.Model.User
             {
                 UserName = registerResponse.Username,
                 Email = registerResponse.Email,

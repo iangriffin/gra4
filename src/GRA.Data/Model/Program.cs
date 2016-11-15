@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace GRA.Data.Model
 {
-    public class Program
+    public class Program : Abstract.BaseDbEntity
     {
-        public int Id { get; set; }
         [Required]
         public int SiteId { get; set; }
 

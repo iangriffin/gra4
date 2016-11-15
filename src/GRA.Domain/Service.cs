@@ -1,4 +1,5 @@
-﻿using GRA.Domain.Model;
+﻿using GRA.Domain.Abstract;
+using GRA.Domain.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using System;
@@ -10,32 +11,32 @@ namespace GRA.Domain
     public class Service
     {
         private readonly ILogger<Service> logger;
-        private readonly IRepository repo;
-        public Service(ILogger<Service> logger, IRepository repository)
+        private readonly Abstract.IAuditableRepository<Site, Domain.Site> siteRepository;
+        public Service(ILogger<Service> logger, Abstract.IAuditableRepository<Site> siteRepository)
         {
             if (logger == null)
             {
                 throw new ArgumentNullException("logger");
             }
             this.logger = logger;
-            if (repository == null)
+            if (siteRepository == null)
             {
                 throw new ArgumentNullException("repository");
             }
-            repo = repository;
+            this.siteRepository = siteRepository;
         }
 
-        public IEnumerable<Model.Site> GetSitePaths()
+        public IEnumerable<Site> GetSitePaths()
         {
-            return repo.GetSites();
+            return siteRepository.GetAll();
         }
 
-        public void InitialSetup(Participant participant)
+        public void InitialSetup(User user)
         {
             // todo verify paritipcant is admin?
 
             // create default site
-            repo.AddSite(participant, new Model.Site
+            siteRepository.Add(0, new Model.Site
             {
                 Name = "Default Site",
                 Path = "default"

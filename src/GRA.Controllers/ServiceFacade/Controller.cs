@@ -9,10 +9,10 @@ namespace GRA.Controllers.ServiceFacade
     {
         public readonly IConfigurationRoot config;
         public readonly Service service;
-        public readonly UserManager<Domain.Model.Participant> userManager;
+        public readonly UserManager<Domain.Model.User> userManager;
         public Controller(IConfigurationRoot config, 
             Service service,
-            UserManager<Domain.Model.Participant> userManager)
+            UserManager<Domain.Model.User> userManager)
         {
             if (config == null)
             {
