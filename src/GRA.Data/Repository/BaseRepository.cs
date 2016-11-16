@@ -9,9 +9,11 @@ namespace GRA.Data.Repository
 
     public class BaseRepository
     {
-        private readonly Context context;
-        private readonly AutoMapper.IMapper mapper;
-        private readonly ILogger logger;
+        protected readonly Context context;
+
+        protected readonly AutoMapper.IMapper mapper;
+
+        protected readonly ILogger logger;
 
         public BaseRepository(
             Context context, 

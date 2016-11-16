@@ -7,9 +7,6 @@ namespace GRA.Data.Repository
 {
     public class AuditableSiteRepository : BaseRepository, ISiteRepository
     {
-        private readonly Context context;
-        private readonly AutoMapper.IMapper mapper;
-        private readonly ILogger logger;
         private readonly GenericAuditableRepository<Model.Site, Domain.Model.Site> genericAuditableRepository;
 
         public AuditableSiteRepository(
