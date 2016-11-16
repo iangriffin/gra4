@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace GRA.Data.Repository
 {
-    public class AuditableSiteRepository : BaseRepository, ISiteRepository
+    public class AuditableSiteRepository : BaseRepository<AuditableSiteRepository>, ISiteRepository
     {
         private readonly GenericAuditableRepository<Model.Site, Domain.Model.Site> genericAuditableRepository;
 

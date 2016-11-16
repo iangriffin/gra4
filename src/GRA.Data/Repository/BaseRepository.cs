@@ -7,17 +7,17 @@ namespace GRA.Data.Repository
 {
     using Microsoft.Extensions.Logging;
 
-    public class BaseRepository
+    public class BaseRepository<T>
     {
         protected readonly Context context;
 
         protected readonly AutoMapper.IMapper mapper;
 
-        protected readonly ILogger logger;
+        protected readonly ILogger<T> logger;
 
         public BaseRepository(
             Context context, 
-            ILogger<AuditableSiteRepository> logger, 
+            ILogger<T> logger, 
             AutoMapper.IMapper mapper)
         {
             if (context == null)
