@@ -1,4 +1,4 @@
-﻿using GRA.Domain.Abstract;
+﻿using GRA.Domain.Repository;
 using System;
 using System.Linq;
 using Microsoft.Extensions.Logging;
@@ -15,17 +15,17 @@ namespace GRA.Data.Repository
         {
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
             this.context = context;
             if (mapper == null)
             {
-                throw new ArgumentNullException("mapper");
+                throw new ArgumentNullException(nameof(mapper));
             }
             this.mapper = mapper;
             if(logger == null)
             {
-                throw new ArgumentNullException("logger");
+                throw new ArgumentNullException(nameof(logger));
             }
             this.logger = logger;
             genericAuditableRepository = new GenericAuditableRepository<Model.Site, Domain.Model.Site>(context, logger, mapper);
