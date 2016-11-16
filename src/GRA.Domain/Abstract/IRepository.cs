@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace GRA.Domain.Abstract
 {
-    public interface IRepository<T>
+    public interface IRepository<DomainEntity>
     {
-        IQueryable<T> GetAll();
-        IQueryable<T> PageAll(int skip, int take);
-        T GetById(int id);
-        void Add(T entity);
-        void Update(T entity);
-        void Remove(T entity);
+        IQueryable<DomainEntity> GetAll();
+        IQueryable<DomainEntity> PageAll(int skip, int take);
+        DomainEntity GetById(int id);
+        void Add(DomainEntity entity);
+        void Update(DomainEntity entity);
+        void Remove(DomainEntity entity);
         void Remove(int id);
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace GRA.Data.Profile
+﻿namespace GRA.Data.Profile
 {
     public class MappingProfile : AutoMapper.Profile
     {

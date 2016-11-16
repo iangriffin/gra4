@@ -1,18 +1,16 @@
 ﻿using GRA.Domain.Abstract;
 using GRA.Domain.Model;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace GRA.Domain
 {
     public class Service
     {
         private readonly ILogger<Service> logger;
-        private readonly Abstract.IAuditableRepository<Site, Domain.Site> siteRepository;
-        public Service(ILogger<Service> logger, Abstract.IAuditableRepository<Site> siteRepository)
+        private readonly ISiteRepository siteRepository;
+        public Service(ILogger<Service> logger, ISiteRepository siteRepository)
         {
             if (logger == null)
             {
@@ -28,6 +26,7 @@ namespace GRA.Domain
 
         public IEnumerable<Site> GetSitePaths()
         {
+            
             return siteRepository.GetAll();
         }
 

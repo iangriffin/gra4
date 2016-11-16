@@ -1,4 +1,5 @@
 ﻿using AutoMapper.QueryableExtensions;
+using GRA.Data.Abstract;
 using GRA.Data.Extension;
 using GRA.Data.Model;
 using Microsoft.EntityFrameworkCore;
@@ -6,25 +7,23 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
-namespace GRA.Data.Abstract
+namespace GRA.Data
 {
-    public abstract class BaseAuditableRepository<DbEntity, DomainEntity> 
-        : Domain.Abstract.IAuditableRepository<DbEntity, DomainEntity> 
-        where DbEntity : BaseDbEntity 
-        where DomainEntity : Domain.Abstract.IDomainEntity
+    internal class GenericAuditableRepository<DbEntity, DomainEntity>
+        where DbEntity : BaseDbEntity
+        where DomainEntity : class
     {
         private readonly Context context;
-        private readonly ILogger<BaseAuditableRepository<DbEntity, DomainEntity>> logger;
+        private readonly ILogger logger;
         private readonly AutoMapper.IMapper mapper;
 
         private DbSet<DbEntity> dbSet;
         private DbSet<AuditLog> auditSet;
 
-        internal BaseAuditableRepository(Context context,
-            ILogger<BaseAuditableRepository<DbEntity, DomainEntity>> logger,
+        internal GenericAuditableRepository(Context context,
+            ILogger logger,
            AutoMapper.IMapper mapper)
         {
             if (context == null)

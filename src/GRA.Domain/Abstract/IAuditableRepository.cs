@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace GRA.Domain.Abstract
 {
-    public interface IAuditableRepository<DbEntity, DomainEntity>
+    public interface IAuditableRepository<DomainEntity>
     {
         IQueryable<DomainEntity> GetAll();
         IQueryable<DomainEntity> PageAll(int skip, int take);
